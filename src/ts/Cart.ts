@@ -12,12 +12,10 @@ export default class Cart {
     }
 
     totalPrice(): number {
-        let cost = 0;
-  
-        for(let i of this._items) {
-          cost += i.price;
-        }
-  
+        let cost = this._items.reduce((sum, currentItem) => {
+            return sum + currentItem.price
+        }, 0);
+    
         return cost;
     }
 
